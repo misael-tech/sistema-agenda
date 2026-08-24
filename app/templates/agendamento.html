@@ -1,0 +1,879 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Agendamento | Studio & Beauty</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="{% static 'app/index.css' %}">
+
+    <style>
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .font-serif-title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* =========================
+           HORÁRIOS
+        ========================= */
+
+        .horario-btn {
+
+            position: relative;
+
+            min-height: 58px;
+
+            border-radius: 16px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            letter-spacing: 0.01em;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                background-color 0.2s ease,
+                border-color 0.2s ease;
+
+        }
+
+
+        /* DISPONÍVEL */
+
+        .horario-btn.disponivel {
+
+            background: #f0fdf4;
+
+            border-color: #bbf7d0;
+
+            color: #15803d;
+
+        }
+
+
+        .horario-btn.disponivel:hover {
+
+            background: #dcfce7;
+
+            border-color: #86efac;
+
+            transform: translateY(-2px);
+
+            box-shadow: 0 8px 18px rgba(34, 197, 94, 0.10);
+
+        }
+
+
+        /* OCUPADO */
+
+        .horario-btn.ocupado {
+
+            background: #fff1f2;
+
+            border-color: #fecdd3;
+
+            color: #e11d48;
+
+            cursor: not-allowed;
+
+            opacity: 0.75;
+
+        }
+
+
+        /* SELECIONADO */
+
+        .horario-btn.selecionado {
+
+            background: #292524 !important;
+
+            border-color: #292524 !important;
+
+            color: white !important;
+
+            transform: translateY(-2px);
+
+            box-shadow: 0 8px 20px rgba(41, 37, 36, 0.18);
+
+        }
+
+
+        /* ÍCONE */
+
+        .horario-status {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 7px;
+
+        }
+
+
+        .status-dot {
+
+            width: 7px;
+
+            height: 7px;
+
+            border-radius: 999px;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .dot-verde {
+
+            background: #22c55e;
+
+        }
+
+
+        .dot-vermelho {
+
+            background: #f43f5e;
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="bg-[#FAF8F5] text-stone-800 min-h-screen flex flex-col antialiased">
+
+
+<!-- HEADER -->
+
+<header class="border-b border-stone-200/60 bg-[#FAF8F5]/80 backdrop-blur-md sticky top-0 z-50">
+
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+
+        <div class="flex items-center gap-2">
+
+            <span class="text-rose-400 text-xl font-serif-title">
+                ✦
+            </span>
+
+            <span class="text-xs uppercase tracking-[0.25em] font-semibold text-stone-500">
+                Studio & Beauty
+            </span>
+
+        </div>
+
+        <a
+            href="https://wa.me/5585985537227?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20e%20tenho%20uma%20d%C3%BAvida."
+            target="_blank"
+            class="text-xs font-medium tracking-wide text-stone-700 hover:text-stone-900 border border-stone-300 hover:border-stone-800 px-5 py-2.5 rounded-full transition-all duration-300"
+        >
+            Dúvidas? Fale Conosco
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- TÍTULO -->
+
+<section class="relative pt-12 pb-8 px-6 text-center max-w-3xl mx-auto">
+
+    <span
+        class="text-xs uppercase tracking-[0.3em] font-semibold text-rose-500 bg-rose-50 px-3.5 py-1.5 rounded-full border border-rose-100"
+    >
+        Seu momento
+    </span>
+
+    <h1 class="text-4xl sm:text-5xl font-serif-title text-stone-900 mt-6 mb-4 font-normal leading-tight">
+        Agende seu horário
+    </h1>
+
+    <p class="text-stone-500 text-base sm:text-lg font-light leading-relaxed max-w-xl mx-auto">
+        Preencha seus dados abaixo para reservar o seu momento de autocuidado.
+    </p>
+
+    <div class="w-12 h-[1px] bg-stone-300 mx-auto mt-8"></div>
+
+</section>
+
+
+<!-- CONTEÚDO -->
+
+<main class="max-w-5xl mx-auto px-6 py-8 flex-1 w-full">
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+
+
+        <!-- SERVIÇO SELECIONADO -->
+
+        <div class="bg-white border border-stone-100 rounded-3xl overflow-hidden shadow-sm">
+
+            <!-- IMAGEM -->
+
+            <div class="h-64 w-full bg-stone-100 overflow-hidden">
+
+                {% if servico.image %}
+
+                    <img
+                        src="{{ servico.image.url }}"
+                        alt="{{ servico.name }}"
+                        class="w-full h-full object-cover"
+                    >
+
+                {% else %}
+
+                    <div
+                        class="w-full h-full flex flex-col items-center justify-center text-stone-400 text-xs tracking-wider uppercase bg-stone-100"
+                    >
+
+                        <span class="text-3xl mb-2 text-stone-300">
+                            ✦
+                        </span>
+
+                        Sem Imagem
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- INFORMAÇÕES -->
+
+            <div class="p-7">
+
+                <span class="text-[11px] uppercase tracking-[0.2em] text-rose-500 font-semibold">
+                    Serviço escolhido
+                </span>
+
+                <div class="flex justify-between items-start gap-4 mt-3">
+
+                    <h2 class="text-2xl font-serif-title font-medium text-stone-900">
+                        {{ servico.name }}
+                    </h2>
+
+                    <span class="text-xl font-semibold text-stone-900 whitespace-nowrap">
+                        R$ {{ servico.price }}
+                    </span>
+
+                </div>
+
+                <p class="text-sm text-stone-500 leading-relaxed font-light mt-4">
+                    {{ servico.descripiton }}
+                </p>
+
+
+                <!-- DURAÇÃO -->
+
+                <div class="flex items-center gap-2 mt-6 text-sm text-stone-500">
+
+                    <span class="text-rose-400">
+                        ⏱
+                    </span>
+
+                    <span>
+                        Duração: {{ servico.duracao }} minutos
+                    </span>
+
+                </div>
+
+
+                <!-- VOLTAR -->
+
+                <a
+                    href="{% url 'home' %}"
+                    class="inline-flex items-center gap-2 mt-7 text-xs uppercase tracking-widest font-medium text-stone-600 hover:text-rose-500 transition-colors"
+                >
+                    ← Voltar para serviços
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- FORMULÁRIO -->
+
+        <div class="bg-white border border-stone-100 rounded-3xl shadow-sm p-7 sm:p-8">
+
+            <div class="mb-7">
+
+                <span class="text-[11px] uppercase tracking-[0.2em] text-rose-500 font-semibold">
+                    Seus dados
+                </span>
+
+                <h2 class="text-2xl font-serif-title text-stone-900 mt-2">
+                    Reserve seu horário
+                </h2>
+
+                <p class="text-sm text-stone-500 font-light mt-2">
+                    Informe seus dados para confirmar o agendamento.
+                </p>
+
+            </div>
+
+
+            <form method="POST" class="space-y-5">
+
+                {% csrf_token %}
+
+
+                <!-- NOME -->
+
+                <div>
+
+                    <label
+                        for="nome"
+                        class="block text-xs uppercase tracking-widest font-medium text-stone-600 mb-2"
+                    >
+                        Nome
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        placeholder="Digite seu nome"
+                        required
+                        class="w-full bg-[#FAF8F5] border border-stone-200 rounded-xl px-4 py-3.5 text-sm text-stone-800 outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100 transition-all"
+                    >
+
+                </div>
+
+
+                <!-- TELEFONE -->
+
+                <div>
+
+                    <label
+                        for="telefone"
+                        class="block text-xs uppercase tracking-widest font-medium text-stone-600 mb-2"
+                    >
+                        Telefone
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="telefone"
+                        name="telefone"
+                        placeholder="(88) 99999-9999"
+                        required
+                        class="w-full bg-[#FAF8F5] border border-stone-200 rounded-xl px-4 py-3.5 text-sm text-stone-800 outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100 transition-all"
+                    >
+
+                </div>
+
+
+                <!-- PAGAMENTO -->
+
+                <div>
+
+                    <label
+                        for="metodo_pagamento"
+                        class="block text-xs uppercase tracking-widest font-medium text-stone-600 mb-2"
+                    >
+                        Método de pagamento
+                    </label>
+
+                    <select
+                        id="metodo_pagamento"
+                        name="metodo_pagamento"
+                        required
+                        class="w-full bg-[#FAF8F5] border border-stone-200 rounded-xl px-4 py-3.5 text-sm text-stone-800 outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100 transition-all"
+                    >
+
+                        <option value="">
+                            Selecione uma opção
+                        </option>
+
+                        <option value="pix">
+                            Pix
+                        </option>
+
+                        <option value="dinheiro">
+                            Dinheiro
+                        </option>
+
+                        <option value="cartao">
+                            Cartão
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- DATA -->
+
+                <div>
+
+                    <label
+                        for="data"
+                        class="block text-xs uppercase tracking-widest font-medium text-stone-600 mb-2"
+                    >
+                        Data
+                    </label>
+
+                    <input
+                        type="date"
+                        id="data"
+                        name="data"
+                        min="{{ hoje }}"
+                        required
+                        class="w-full bg-[#FAF8F5] border border-stone-200 rounded-xl px-4 py-3.5 text-sm text-stone-800 outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100 transition-all"
+                    >
+
+                </div>
+
+
+                <!-- HORÁRIOS -->
+
+                <div class="pt-2">
+
+                    <div class="flex items-center justify-between mb-3">
+
+                        <div>
+
+                            <label
+                                class="block text-xs uppercase tracking-widest font-medium text-stone-600"
+                            >
+                                Horário
+                            </label>
+
+                            <p class="text-[11px] text-stone-400 mt-1">
+                                Escolha um horário disponível
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- LEGENDA -->
+
+                    <div class="flex flex-wrap items-center gap-4 mb-4">
+
+                        <div class="flex items-center gap-2">
+
+                            <span class="w-2 h-2 rounded-full bg-green-500"></span>
+
+                            <span class="text-[11px] text-stone-500">
+                                Disponível
+                            </span>
+
+                        </div>
+
+
+                        <div class="flex items-center gap-2">
+
+                            <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+
+                            <span class="text-[11px] text-stone-500">
+                                Ocupado
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BOTÕES -->
+
+                    <div
+                        id="horarios"
+                        class="grid grid-cols-2 sm:grid-cols-4 gap-2.5"
+                    >
+
+                        {% for horario in horarios %}
+
+                            <button
+                                type="button"
+                                data-horario="{{ horario }}"
+                                class="horario-btn disponivel border px-4 py-3 text-sm font-medium"
+                            >
+
+                                <span class="horario-status">
+
+                                    <span class="status-dot dot-verde"></span>
+
+                                    {{ horario }}
+
+                                </span>
+
+                            </button>
+
+                        {% endfor %}
+
+                    </div>
+
+
+                    <!-- HORÁRIO ESCOLHIDO -->
+
+                    <input
+                        type="hidden"
+                        id="horario"
+                        name="horario"
+                        required
+                    >
+
+
+                    <p
+                        id="mensagem-horario"
+                        class="text-xs text-stone-400 mt-3"
+                    >
+                        Selecione um horário disponível.
+                    </p>
+
+                </div>
+
+
+                <!-- MENSAGEM DE ERRO -->
+
+                {% if erro %}
+
+                    <div class="bg-red-50 border border-red-100 text-red-600 text-sm rounded-xl px-4 py-3">
+
+                        {{ erro }}
+
+                    </div>
+
+                {% endif %}
+
+
+                <!-- BOTÃO -->
+
+                <button
+                    type="submit"
+                    class="w-full bg-stone-900 hover:bg-rose-500 text-white text-xs uppercase tracking-widest font-medium py-4 rounded-2xl transition-all duration-300 shadow-md hover:shadow-rose-500/20 active:scale-[0.98] mt-3"
+                >
+                    Confirmar agendamento
+                </button>
+
+
+                <p class="text-center text-[11px] text-stone-400 leading-relaxed pt-1">
+
+                    Ao confirmar, seus dados serão utilizados para registrar o seu agendamento.
+
+                </p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer class="border-t border-stone-200/60 py-10 mt-12 text-center bg-white/50">
+
+    <div class="max-w-6xl mx-auto px-6 flex flex-col items-center gap-3">
+
+        <span class="text-rose-400 text-lg font-serif-title">
+            ✦
+        </span>
+
+        <p class="text-xs text-stone-400 uppercase tracking-widest">
+            © Agenda Profissional. Todos os direitos reservados.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- JAVASCRIPT -->
+<script>
+const dataInput = document.getElementById("data");
+const horarioInput = document.getElementById("horario");
+const horarioButtons = document.querySelectorAll(".horario-btn");
+const mensagemHorario = document.getElementById("mensagem-horario");
+
+
+/* =========================
+   DATA MÍNIMA = HOJE
+========================= */
+
+const hoje = new Date();
+const ano = hoje.getFullYear();
+const mes = String(hoje.getMonth() + 1).padStart(2, "0");
+const dia = String(hoje.getDate()).padStart(2, "0");
+
+const dataHoje = `${ano}-${mes}-${dia}`;
+
+dataInput.min = dataHoje;
+
+
+/* =========================
+   VERIFICAR HORÁRIOS
+========================= */
+
+dataInput.addEventListener("change", function () {
+
+    const data = this.value;
+
+    horarioInput.value = "";
+
+    horarioButtons.forEach(button => {
+
+        button.disabled = false;
+
+        button.classList.remove(
+            "ocupado",
+            "selecionado"
+        );
+
+        button.classList.add(
+            "disponivel"
+        );
+
+        button.innerHTML = `
+            <span class="horario-status">
+                <span class="status-dot dot-verde"></span>
+                ${button.dataset.horario}
+            </span>
+        `;
+    });
+
+
+    if (!data) {
+
+        mensagemHorario.textContent =
+            "Selecione uma data primeiro.";
+
+        return;
+    }
+
+
+    /* =========================
+       SE A DATA FOR HOJE,
+       BLOQUEAR HORÁRIOS PASSADOS
+    ========================= */
+
+    const agora = new Date();
+
+    const dataSelecionada = new Date(
+        data + "T00:00:00"
+    );
+
+    const hojeSemHora = new Date(
+        agora.getFullYear(),
+        agora.getMonth(),
+        agora.getDate()
+    );
+
+
+    if (
+        dataSelecionada.getTime() ===
+        hojeSemHora.getTime()
+    ) {
+
+        const horaAtual = agora.getHours();
+        const minutoAtual = agora.getMinutes();
+
+        horarioButtons.forEach(button => {
+
+            const [hora, minuto] =
+                button.dataset.horario.split(":");
+
+            const horaHorario = parseInt(hora);
+            const minutoHorario = parseInt(minuto);
+
+            if (
+                horaHorario < horaAtual ||
+                (
+                    horaHorario === horaAtual &&
+                    minutoHorario <= minutoAtual
+                )
+            ) {
+
+                button.disabled = true;
+
+                button.classList.remove(
+                    "disponivel",
+                    "selecionado"
+                );
+
+                button.classList.add(
+                    "ocupado"
+                );
+
+                button.innerHTML = `
+                    <span class="horario-status">
+                        <span class="status-dot dot-vermelho"></span>
+                        ${button.dataset.horario}
+                    </span>
+                `;
+            }
+        });
+    }
+
+
+    mensagemHorario.textContent =
+        "Verificando disponibilidade...";
+
+
+    /* =========================
+       CONSULTAR BANCO
+    ========================= */
+
+    fetch(
+        "{% url 'horarios_disponiveis' servico.id %}?data=" + data
+    )
+    .then(response => response.json())
+    .then(data => {
+
+        const horariosOcupados =
+            data.horarios_ocupados;
+
+
+        horarioButtons.forEach(button => {
+
+            const horario =
+                button.dataset.horario;
+
+
+            if (
+                horariosOcupados.includes(horario)
+            ) {
+
+                button.disabled = true;
+
+                button.classList.remove(
+                    "disponivel",
+                    "selecionado"
+                );
+
+                button.classList.add(
+                    "ocupado"
+                );
+
+                button.innerHTML = `
+                    <span class="horario-status">
+                        <span class="status-dot dot-vermelho"></span>
+                        ${horario}
+                    </span>
+                `;
+            }
+
+        });
+
+
+        mensagemHorario.textContent =
+            "Verde = disponível • Vermelho = ocupado.";
+
+    })
+    .catch(error => {
+
+        console.error(
+            "Erro ao consultar horários:",
+            error
+        );
+
+        mensagemHorario.textContent =
+            "Não foi possível verificar os horários.";
+    });
+
+});
+
+
+/* =========================
+   SELECIONAR HORÁRIO
+========================= */
+
+horarioButtons.forEach(button => {
+
+    button.addEventListener("click", function () {
+
+        if (this.disabled) {
+            return;
+        }
+
+
+        /* Remove seleção dos outros */
+
+        horarioButtons.forEach(btn => {
+
+            btn.classList.remove(
+                "selecionado"
+            );
+
+            if (!btn.disabled) {
+
+                btn.classList.add(
+                    "disponivel"
+                );
+            }
+
+        });
+
+
+        /* Seleciona */
+
+        this.classList.remove(
+            "disponivel"
+        );
+
+        this.classList.add(
+            "selecionado"
+        );
+
+
+        this.innerHTML = `
+            <span class="horario-status">
+                ✓
+                ${this.dataset.horario}
+            </span>
+        `;
+
+
+        /* Salva horário */
+
+        horarioInput.value =
+            this.dataset.horario;
+
+
+        mensagemHorario.textContent =
+            "Horário selecionado: " +
+            this.dataset.horario;
+
+    });
+
+});
+</script>
+
+
+</body>
+
+</html>
