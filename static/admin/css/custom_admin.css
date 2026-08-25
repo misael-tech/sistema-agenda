@@ -1,0 +1,393 @@
+/* ==========================================================
+   STUDIO & BEAUTY — ESMERALDA, MENTA & DASHBOARD RESPONSIVO
+   ========================================================== */
+
+:root {
+    --sb-bg: #F4F6F8;
+    --sb-surface: #FFFFFF;
+    --sb-surface-soft: #F9FAFC;
+
+    /* Primária (Sidebar) */
+    --sb-primary: #38A182;
+    --sb-primary-dark: #2D856B;
+    --sb-primary-light: #52B79A;
+
+    /* Ação e Destaque (Menta) */
+    --sb-accent: #46BFA0;
+    --sb-accent-dark: #3AA98D;
+    --sb-accent-soft: #EBF7F4;
+
+    /* Textos */
+    --sb-text: #2D3748;
+    --sb-text-soft: #4A5568;
+    --sb-muted: #718096;
+
+    /* Bordas */
+    --sb-border: #E2E8F0;
+    --sb-border-light: #EDF2F7;
+
+    /* Feedback */
+    --sb-success: #38A182;
+    --sb-success-soft: #EBF7F4;
+    --sb-warning: #D69E2E;
+    --sb-warning-soft: #FEFCBF;
+    --sb-danger: #E53E3E;
+    --sb-danger-soft: #FFF5F5;
+
+    /* Arredondamento e Sombras */
+    --sb-radius-sm: 8px;
+    --sb-radius-md: 12px;
+    --sb-radius-lg: 16px;
+    --sb-shadow: 0 4px 12px rgba(45, 55, 72, 0.04);
+    --sb-shadow-hover: 0 8px 24px rgba(45, 55, 72, 0.08);
+    --sb-focus-ring: 0 0 0 3px rgba(56, 161, 130, 0.25);
+}
+
+/* ==========================================================
+   BASE & NAVEGAÇÃO
+   ========================================================== */
+
+html, body {
+    background: var(--sb-bg) !important;
+    overflow-x: hidden !important;
+    width: 100% !important;
+}
+
+body {
+    color: var(--sb-text) !important;
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--sb-primary) !important;
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: var(--sb-primary-dark) !important;
+}
+
+:focus-visible {
+    outline: none !important;
+    box-shadow: var(--sb-focus-ring) !important;
+}
+
+/* Sidebar */
+.main-sidebar, .sidebar-dark-teal {
+    background: var(--sb-primary) !important;
+    border-right: none !important;
+}
+
+.brand-link {
+    height: 64px !important;
+    display: flex !important;
+    align-items: center;
+    padding: 0 20px !important;
+    background: var(--sb-primary-dark) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.brand-text {
+    color: #FFFFFF !important;
+    font-size: 17px !important;
+    font-weight: 700 !important;
+}
+
+.nav-sidebar .nav-header {
+    color: rgba(255, 255, 255, 0.65) !important;
+    padding: 16px 20px 8px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+}
+
+.nav-sidebar .nav-link {
+    margin: 3px 12px !important;
+    padding: 10px 14px !important;
+    border-radius: var(--sb-radius-md) !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 500;
+}
+
+.nav-sidebar .nav-link:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: #FFFFFF !important;
+}
+
+.nav-sidebar .nav-link.active {
+    background: #FFFFFF !important;
+    color: var(--sb-primary-dark) !important;
+    font-weight: 700;
+}
+
+.nav-sidebar .nav-link.active .nav-icon {
+    color: var(--sb-primary) !important;
+}
+
+/* Header */
+.main-header {
+    min-height: 64px;
+    background: var(--sb-surface) !important;
+    border-bottom: 1px solid var(--sb-border) !important;
+}
+
+/* ==========================================================
+   CARDS, TABELAS E COMPONENTES
+   ========================================================== */
+
+.card {
+    background: var(--sb-surface) !important;
+    border: 1px solid var(--sb-border) !important;
+    border-radius: var(--sb-radius-lg) !important;
+    box-shadow: var(--sb-shadow) !important;
+}
+
+.card-header {
+    background: var(--sb-surface) !important;
+    border-bottom: 1px solid var(--sb-border-light) !important;
+    padding: 16px 20px !important;
+}
+
+.nav-tabs .nav-link {
+    color: var(--sb-text-soft) !important;
+    border-radius: var(--sb-radius-sm) var(--sb-radius-sm) 0 0 !important;
+    font-weight: 600;
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--sb-primary) !important;
+    border-color: var(--sb-border) var(--sb-border) var(--sb-surface) !important;
+    border-top: 3px solid var(--sb-accent) !important;
+}
+
+.table thead th {
+    background: var(--sb-surface-soft) !important;
+    color: var(--sb-muted) !important;
+    border-bottom: 1px solid var(--sb-border) !important;
+    padding: 12px 16px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+}
+
+.table tbody tr:hover {
+    background: var(--sb-accent-soft) !important;
+}
+
+/* Botões */
+.btn-primary, .addlink, .btn-success {
+    background: var(--sb-accent) !important;
+    border-color: var(--sb-accent) !important;
+    color: #FFFFFF !important;
+    border-radius: 999px !important;
+    font-weight: 600 !important;
+    padding: 8px 20px !important;
+}
+
+.btn-primary:hover, .addlink:hover, .btn-success:hover {
+    background: var(--sb-accent-dark) !important;
+    border-color: var(--sb-accent-dark) !important;
+}
+
+/* Formulários */
+.form-control, .custom-select, select, textarea {
+    min-height: 40px;
+    background: var(--sb-surface) !important;
+    border: 1px solid var(--sb-border) !important;
+    border-radius: var(--sb-radius-sm) !important;
+    color: var(--sb-text) !important;
+}
+
+.form-control:focus, .custom-select:focus, select:focus, textarea:focus {
+    border-color: var(--sb-accent) !important;
+    box-shadow: var(--sb-focus-ring) !important;
+}
+
+/* ==========================================================
+   CORREÇÃO DE RESPONSIVIDADE DO DASHBOARD
+   ========================================================== */
+
+/* Previne estourar a largura da tela em dispositivos móveis */
+.wrapper, .content-wrapper, .container-fluid, .content {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* Reestrutura o Grid de Métricas (small-box / cards de estatística) */
+.small-box {
+    border-radius: var(--sb-radius-md) !important;
+    box-shadow: var(--sb-shadow) !important;
+    margin-bottom: 16px !important;
+}
+
+.small-box .inner {
+    padding: 16px !important;
+}
+
+.small-box .icon {
+    right: 12px !important;
+    top: 12px !important;
+}
+
+/* Ajustes para Tablets e Desktops Menores (até 992px) */
+@media (max-width: 992px) {
+    .content-wrapper {
+        padding: 0 12px !important;
+    }
+
+    .content-header {
+        padding: 16px 8px 12px !important;
+    }
+
+    /* Transforma o grid do dashboard em colunas responsivas */
+    .row {
+        margin-left: -6px !important;
+        margin-right: -6px !important;
+    }
+
+    .row > [class*="col-"] {
+        padding-left: 6px !important;
+        padding-right: 6px !important;
+    }
+
+    .table-responsive {
+        border-radius: var(--sb-radius-md);
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        display: block;
+        width: 100%;
+    }
+
+    #changelist-filter {
+        position: static !important;
+        width: 100% !important;
+        margin-top: 16px;
+    }
+}
+
+/* Ajustes para Celulares (até 768px) */
+@media (max-width: 768px) {
+    .main-header {
+        min-height: 56px !important;
+    }
+
+    .content-header h1 {
+        font-size: 20px !important;
+    }
+
+    /* Força os cards do Dashboard e métricas a ocuparem 100% no celular */
+    .row > [class*="col-"] {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+
+    .small-box h3 {
+        font-size: 22px !important;
+    }
+
+    .form-control, .custom-select, select, textarea {
+        min-height: 44px !important;
+        font-size: 16px !important;
+    }
+
+    .btn {
+        width: 100%;
+        min-height: 44px !important;
+        justify-content: center;
+        margin-bottom: 8px;
+    }
+
+    .submit-row {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 12px !important;
+    }
+
+    .submit-row input, .submit-row button, .submit-row a {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    #changelist-search {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #searchbar, #changelist-search input[type="submit"] {
+        width: 100% !important;
+        min-height: 44px !important;
+    }
+
+    .nav-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+/* ==========================================================
+   CORREÇÃO DAS AÇÕES RECENTES (RECENT ACTIONS / SIDEBAR)
+   ========================================================== */
+
+/* Garante exibição do bloco lateral de ações recentes */
+#content-related,
+.recent-actions-module,
+aside.control-sidebar {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Estilização do Card de Ações Recentes */
+.recent-actions-module {
+    background: var(--sb-surface) !important;
+    border: 1px solid var(--sb-border) !important;
+    border-radius: var(--sb-radius-lg) !important;
+    padding: 16px !important;
+    box-shadow: var(--sb-shadow) !important;
+    margin-top: 16px;
+}
+
+.recent-actions-module h2, 
+.recent-actions-module h3 {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: var(--sb-text) !important;
+    margin-bottom: 12px !important;
+    border-bottom: 1px solid var(--sb-border-light);
+    padding-bottom: 8px;
+}
+
+/* Lista de Ações */
+.recent-actions-module ul {
+    padding-left: 0 !important;
+    list-style: none !important;
+    margin-bottom: 0 !important;
+}
+
+.recent-actions-module li {
+    font-size: 13px !important;
+    color: var(--sb-text-soft) !important;
+    padding: 8px 0 !important;
+    border-bottom: 1px dashed var(--sb-border-light);
+}
+
+.recent-actions-module li:last-child {
+    border-bottom: none !important;
+}
+
+/* Responsividade: Celulares e Tablets */
+@media (max-width: 992px) {
+    /* No mobile/tablet, move as Ações Recentes para baixo do conteúdo principal */
+    #content-related {
+        width: 100% !important;
+        float: none !important;
+        clear: both !important;
+        margin-top: 24px !important;
+    }
+}

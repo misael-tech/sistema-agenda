@@ -1,15 +1,56 @@
 from django.contrib import admin
-from .models import Servico,Agendamento
+from .models import Servico, Agendamento
 
-# Register your models here.
 
+@admin.register(Servico)
 class ServicosAdmin(admin.ModelAdmin):
-    ...
 
-admin.site.register(Servico,ServicosAdmin)    
+    list_display = (
+        "name",
+        "price",
+        "duracao",
+    )
+
+    search_fields = (
+        "name",
+        "descripiton",
+    )
+
+    ordering = (
+        "name",
+    )
+
+    list_per_page = 20
 
 
+@admin.register(Agendamento)
 class AgendamentoAdmin(admin.ModelAdmin):
-    ...
 
-admin.site.register(Agendamento,AgendamentoAdmin)    
+    list_display = (
+        "nome",
+        "telefone",
+        "servico",
+        "data",
+        "horario",
+        "metodo_pagamento",
+    )
+
+    search_fields = (
+        "nome",
+        "telefone",
+    )
+
+    list_filter = (
+        "data",
+        "metodo_pagamento",
+        "servico",
+    )
+
+    ordering = (
+        "-data",
+        "horario",
+    )
+
+    list_per_page = 20
+
+    date_hierarchy = "data"
