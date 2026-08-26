@@ -1,5 +1,6 @@
 /* ==========================================================
-   STUDIO & BEAUTY — ESMERALDA, MENTA & DASHBOARD RESPONSIVO
+   STUDIO & BEAUTY — ESMERALDA, MENTA & DASHBOARD
+   RESPONSIVO — DESKTOP / TABLET / MOBILE
    ========================================================== */
 
 :root {
@@ -7,12 +8,12 @@
     --sb-surface: #FFFFFF;
     --sb-surface-soft: #F9FAFC;
 
-    /* Primária (Sidebar) */
+    /* Primária */
     --sb-primary: #38A182;
     --sb-primary-dark: #2D856B;
     --sb-primary-light: #52B79A;
 
-    /* Ação e Destaque (Menta) */
+    /* Ação e destaque */
     --sb-accent: #46BFA0;
     --sb-accent-dark: #3AA98D;
     --sb-accent-soft: #EBF7F4;
@@ -34,20 +35,26 @@
     --sb-danger: #E53E3E;
     --sb-danger-soft: #FFF5F5;
 
-    /* Arredondamento e Sombras */
+    /* Arredondamento */
     --sb-radius-sm: 8px;
     --sb-radius-md: 12px;
     --sb-radius-lg: 16px;
+
+    /* Sombras */
     --sb-shadow: 0 4px 12px rgba(45, 55, 72, 0.04);
     --sb-shadow-hover: 0 8px 24px rgba(45, 55, 72, 0.08);
+
+    /* Foco */
     --sb-focus-ring: 0 0 0 3px rgba(56, 161, 130, 0.25);
 }
 
+
 /* ==========================================================
-   BASE & NAVEGAÇÃO
+   BASE
    ========================================================== */
 
-html, body {
+html,
+body {
     background: var(--sb-bg) !important;
     overflow-x: hidden !important;
     width: 100% !important;
@@ -55,7 +62,14 @@ html, body {
 
 body {
     color: var(--sb-text) !important;
-    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    font-family:
+        "Plus Jakarta Sans",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        sans-serif !important;
+
     font-size: 14px;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
@@ -75,8 +89,13 @@ a:hover {
     box-shadow: var(--sb-focus-ring) !important;
 }
 
-/* Sidebar */
-.main-sidebar, .sidebar-dark-teal {
+
+/* ==========================================================
+   SIDEBAR
+   ========================================================== */
+
+.main-sidebar,
+.sidebar-dark-teal {
     background: var(--sb-primary) !important;
     border-right: none !important;
 }
@@ -86,7 +105,9 @@ a:hover {
     display: flex !important;
     align-items: center;
     padding: 0 20px !important;
+
     background: var(--sb-primary-dark) !important;
+
     border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
@@ -98,17 +119,23 @@ a:hover {
 
 .nav-sidebar .nav-header {
     color: rgba(255, 255, 255, 0.65) !important;
+
     padding: 16px 20px 8px !important;
+
     font-size: 11px !important;
     font-weight: 700 !important;
+
     text-transform: uppercase;
 }
 
 .nav-sidebar .nav-link {
     margin: 3px 12px !important;
     padding: 10px 14px !important;
+
     border-radius: var(--sb-radius-md) !important;
+
     color: rgba(255, 255, 255, 0.85) !important;
+
     font-weight: 500;
 }
 
@@ -127,49 +154,86 @@ a:hover {
     color: var(--sb-primary) !important;
 }
 
-/* Header */
+
+/* ==========================================================
+   HEADER
+   ========================================================== */
+
 .main-header {
     min-height: 64px;
+
     background: var(--sb-surface) !important;
+
     border-bottom: 1px solid var(--sb-border) !important;
 }
 
+
 /* ==========================================================
-   CARDS, TABELAS E COMPONENTES
+   CARDS
    ========================================================== */
 
 .card {
     background: var(--sb-surface) !important;
+
     border: 1px solid var(--sb-border) !important;
     border-radius: var(--sb-radius-lg) !important;
+
     box-shadow: var(--sb-shadow) !important;
 }
 
 .card-header {
     background: var(--sb-surface) !important;
+
     border-bottom: 1px solid var(--sb-border-light) !important;
+
     padding: 16px 20px !important;
 }
 
+
+/* ==========================================================
+   TABS
+   ========================================================== */
+
 .nav-tabs .nav-link {
     color: var(--sb-text-soft) !important;
-    border-radius: var(--sb-radius-sm) var(--sb-radius-sm) 0 0 !important;
+
+    border-radius:
+        var(--sb-radius-sm)
+        var(--sb-radius-sm)
+        0
+        0 !important;
+
     font-weight: 600;
 }
 
 .nav-tabs .nav-link.active {
     color: var(--sb-primary) !important;
-    border-color: var(--sb-border) var(--sb-border) var(--sb-surface) !important;
+
+    border-color:
+        var(--sb-border)
+        var(--sb-border)
+        var(--sb-surface) !important;
+
     border-top: 3px solid var(--sb-accent) !important;
 }
 
+
+/* ==========================================================
+   TABELAS
+   ========================================================== */
+
 .table thead th {
     background: var(--sb-surface-soft) !important;
+
     color: var(--sb-muted) !important;
+
     border-bottom: 1px solid var(--sb-border) !important;
+
     padding: 12px 16px !important;
+
     font-size: 11px !important;
     font-weight: 700 !important;
+
     text-transform: uppercase;
 }
 
@@ -177,50 +241,101 @@ a:hover {
     background: var(--sb-accent-soft) !important;
 }
 
-/* Botões */
-.btn-primary, .addlink, .btn-success {
-    background: var(--sb-accent) !important;
-    border-color: var(--sb-accent) !important;
-    color: #FFFFFF !important;
-    border-radius: 999px !important;
-    font-weight: 600 !important;
-    padding: 8px 20px !important;
+.table-responsive {
+    width: 100%;
+    overflow-x: auto !important;
+
+    -webkit-overflow-scrolling: touch;
+
+    border-radius: var(--sb-radius-md);
 }
 
-.btn-primary:hover, .addlink:hover, .btn-success:hover {
+
+/* ==========================================================
+   BOTÕES
+   ========================================================== */
+
+.btn-primary,
+.addlink,
+.btn-success {
+    background: var(--sb-accent) !important;
+
+    border-color: var(--sb-accent) !important;
+
+    color: #FFFFFF !important;
+
+    border-radius: 999px !important;
+
+    font-weight: 600 !important;
+
+    padding: 8px 20px !important;
+
+    min-height: 40px;
+}
+
+.btn-primary:hover,
+.addlink:hover,
+.btn-success:hover {
     background: var(--sb-accent-dark) !important;
+
     border-color: var(--sb-accent-dark) !important;
 }
 
-/* Formulários */
-.form-control, .custom-select, select, textarea {
+
+/* ==========================================================
+   FORMULÁRIOS
+   ========================================================== */
+
+.form-control,
+.custom-select,
+select,
+textarea {
     min-height: 40px;
+
     background: var(--sb-surface) !important;
+
     border: 1px solid var(--sb-border) !important;
+
     border-radius: var(--sb-radius-sm) !important;
+
     color: var(--sb-text) !important;
 }
 
-.form-control:focus, .custom-select:focus, select:focus, textarea:focus {
+.form-control:focus,
+.custom-select:focus,
+select:focus,
+textarea:focus {
     border-color: var(--sb-accent) !important;
+
     box-shadow: var(--sb-focus-ring) !important;
 }
 
+
 /* ==========================================================
-   CORREÇÃO DE RESPONSIVIDADE DO DASHBOARD
+   CONTAINER / LAYOUT
    ========================================================== */
 
-/* Previne estourar a largura da tela em dispositivos móveis */
-.wrapper, .content-wrapper, .container-fluid, .content {
+.wrapper,
+.content-wrapper,
+.container-fluid,
+.content {
     max-width: 100vw !important;
+
     overflow-x: hidden !important;
+
     box-sizing: border-box !important;
 }
 
-/* Reestrutura o Grid de Métricas (small-box / cards de estatística) */
+
+/* ==========================================================
+   DASHBOARD — SMALL BOX
+   ========================================================== */
+
 .small-box {
     border-radius: var(--sb-radius-md) !important;
+
     box-shadow: var(--sb-shadow) !important;
+
     margin-bottom: 16px !important;
 }
 
@@ -233,8 +348,14 @@ a:hover {
     top: 12px !important;
 }
 
-/* Ajustes para Tablets e Desktops Menores (até 992px) */
+
+/* ==========================================================
+   TABLET
+   Até 992px
+   ========================================================== */
+
 @media (max-width: 992px) {
+
     .content-wrapper {
         padding: 0 12px !important;
     }
@@ -243,7 +364,6 @@ a:hover {
         padding: 16px 8px 12px !important;
     }
 
-    /* Transforma o grid do dashboard em colunas responsivas */
     .row {
         margin-left: -6px !important;
         margin-right: -6px !important;
@@ -255,125 +375,500 @@ a:hover {
     }
 
     .table-responsive {
-        border-radius: var(--sb-radius-md);
-        overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch;
         display: block;
+
         width: 100%;
+
+        overflow-x: auto !important;
+
+        border-radius: var(--sb-radius-md);
+
+        -webkit-overflow-scrolling: touch;
     }
 
     #changelist-filter {
         position: static !important;
+
         width: 100% !important;
+
         margin-top: 16px;
+    }
+
+    /* Ações recentes */
+    #content-related {
+        width: 100% !important;
+
+        float: none !important;
+
+        clear: both !important;
+
+        margin-top: 24px !important;
     }
 }
 
-/* Ajustes para Celulares (até 768px) */
+
+/* ==========================================================
+   MOBILE
+   Até 768px
+   ========================================================== */
+
 @media (max-width: 768px) {
+
+    /* ------------------------------------------------------
+       HEADER
+       ------------------------------------------------------ */
+
     .main-header {
         min-height: 56px !important;
+    }
+
+    /* ------------------------------------------------------
+       TÍTULOS
+       ------------------------------------------------------ */
+
+    .content-header {
+        padding: 14px 8px 10px !important;
     }
 
     .content-header h1 {
         font-size: 20px !important;
     }
 
-    /* Força os cards do Dashboard e métricas a ocuparem 100% no celular */
+    /* ------------------------------------------------------
+       GRID
+       ------------------------------------------------------ */
+
     .row > [class*="col-"] {
         flex: 0 0 100% !important;
+
         max-width: 100% !important;
     }
+
+    /* ------------------------------------------------------
+       SMALL BOX
+       ------------------------------------------------------ */
 
     .small-box h3 {
         font-size: 22px !important;
     }
 
-    .form-control, .custom-select, select, textarea {
-        min-height: 44px !important;
-        font-size: 16px !important;
+    .small-box .inner {
+        padding: 14px !important;
     }
+
+
+    /* ------------------------------------------------------
+       CAMPOS
+       ------------------------------------------------------ */
+
+    .form-control,
+    .custom-select,
+    select,
+    textarea {
+        min-height: 40px !important;
+
+        font-size: 15px !important;
+    }
+
+
+    /* ------------------------------------------------------
+       BOTÕES — CORREÇÃO PRINCIPAL
+       ------------------------------------------------------ */
+
+    /*
+       NÃO deixar todos os botões ocuparem 100%
+       da tela no celular.
+    */
 
     .btn {
-        width: 100%;
-        min-height: 44px !important;
-        justify-content: center;
-        margin-bottom: 8px;
+        width: auto !important;
+
+        min-width: 0 !important;
+
+        min-height: 40px !important;
+
+        padding: 8px 16px !important;
+
+        margin-bottom: 6px !important;
+
+        font-size: 14px !important;
+
+        line-height: 1.3 !important;
+
+        white-space: nowrap;
+
+        display: inline-flex !important;
+
+        align-items: center !important;
+
+        justify-content: center !important;
     }
+
+
+    /* Botões principais */
+
+    .btn-primary,
+    .btn-success,
+    .addlink {
+        width: auto !important;
+
+        min-height: 40px !important;
+
+        padding: 8px 18px !important;
+    }
+
+
+    /* ------------------------------------------------------
+       BOTÕES DA ÁREA DE AÇÕES
+       ------------------------------------------------------ */
 
     .submit-row {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        padding: 12px !important;
+        display: flex !important;
+
+        flex-direction: row !important;
+
+        flex-wrap: wrap !important;
+
+        align-items: center !important;
+
+        gap: 8px !important;
+
+        padding: 10px !important;
     }
 
-    .submit-row input, .submit-row button, .submit-row a {
-        width: 100% !important;
+    .submit-row input,
+    .submit-row button,
+    .submit-row a {
+        width: auto !important;
+
+        min-width: 0 !important;
+
         margin: 0 !important;
     }
 
+
+    /* ------------------------------------------------------
+       PESQUISA DO DJANGO ADMIN
+       ------------------------------------------------------ */
+
     #changelist-search {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
+        display: flex !important;
+
+        flex-direction: row !important;
+
+        flex-wrap: wrap !important;
+
+        align-items: center !important;
+
+        gap: 8px !important;
+
+        width: 100% !important;
     }
 
-    #searchbar, #changelist-search input[type="submit"] {
-        width: 100% !important;
-        min-height: 44px !important;
+    #searchbar {
+        flex: 1 1 180px !important;
+
+        width: auto !important;
+
+        min-height: 40px !important;
+
+        font-size: 15px !important;
     }
+
+    #changelist-search input[type="submit"] {
+        width: auto !important;
+
+        min-width: 90px !important;
+
+        min-height: 40px !important;
+
+        padding: 8px 18px !important;
+
+        margin: 0 !important;
+    }
+
+
+    /* ------------------------------------------------------
+       FILTROS
+       ------------------------------------------------------ */
+
+    #changelist-filter {
+        width: 100% !important;
+
+        margin-top: 12px !important;
+    }
+
+    #changelist-filter select,
+    #changelist-filter input {
+        width: 100% !important;
+
+        min-height: 40px !important;
+    }
+
+
+    /* ------------------------------------------------------
+       TABS
+       ------------------------------------------------------ */
 
     .nav-tabs {
-        flex-wrap: nowrap;
-        overflow-x: auto;
+        flex-wrap: nowrap !important;
+
+        overflow-x: auto !important;
+
+        white-space: nowrap;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .nav-tabs .nav-link {
+        flex: 0 0 auto;
+
+        font-size: 13px !important;
+
+        padding: 8px 12px !important;
+    }
+
+
+    /* ------------------------------------------------------
+       TABELAS
+       ------------------------------------------------------ */
+
+    .table {
+        font-size: 13px !important;
+    }
+
+    .table thead th {
+        padding: 10px 12px !important;
+
+        font-size: 10px !important;
+    }
+
+    .table tbody td {
+        padding: 10px 12px !important;
+
         white-space: nowrap;
     }
+
+
+    /* ------------------------------------------------------
+       CARDS
+       ------------------------------------------------------ */
+
+    .card {
+        border-radius: var(--sb-radius-md) !important;
+    }
+
+    .card-header {
+        padding: 13px 15px !important;
+    }
+
+
+    /* ------------------------------------------------------
+       CONTENT
+       ------------------------------------------------------ */
+
+    .content {
+        padding: 0 8px !important;
+    }
+
+    .content-wrapper {
+        padding: 0 8px !important;
+    }
+
+
+    /* ------------------------------------------------------
+       BREADCRUMB
+       ------------------------------------------------------ */
+
+    .breadcrumb {
+        font-size: 12px !important;
+
+        padding-left: 0 !important;
+
+        padding-right: 0 !important;
+
+        white-space: nowrap;
+
+        overflow-x: auto;
+    }
+
+
+    /* ------------------------------------------------------
+       AÇÕES RECENTES
+       ------------------------------------------------------ */
+
+    .recent-actions-module {
+        margin-top: 16px !important;
+
+        padding: 14px !important;
+
+        border-radius: var(--sb-radius-md) !important;
+    }
+
+    .recent-actions-module h2,
+    .recent-actions-module h3 {
+        font-size: 14px !important;
+    }
+
+    .recent-actions-module li {
+        font-size: 12px !important;
+
+        padding: 7px 0 !important;
+    }
 }
+
+
 /* ==========================================================
-   CORREÇÃO DAS AÇÕES RECENTES (RECENT ACTIONS / SIDEBAR)
+   CELULARES PEQUENOS
+   Até 480px
    ========================================================== */
 
-/* Garante exibição do bloco lateral de ações recentes */
+@media (max-width: 480px) {
+
+    body {
+        font-size: 13px;
+    }
+
+    .content {
+        padding: 0 6px !important;
+    }
+
+    .content-wrapper {
+        padding: 0 6px !important;
+    }
+
+    .content-header {
+        padding-left: 4px !important;
+        padding-right: 4px !important;
+    }
+
+    .content-header h1 {
+        font-size: 19px !important;
+    }
+
+
+    /* Botões ainda mais compactos */
+
+    .btn,
+    .btn-primary,
+    .btn-success,
+    .addlink {
+        min-height: 38px !important;
+
+        padding: 7px 14px !important;
+
+        font-size: 13px !important;
+    }
+
+
+    /* Pesquisa */
+
+    #changelist-search {
+        gap: 6px !important;
+    }
+
+    #searchbar {
+        flex-basis: 100% !important;
+
+        width: 100% !important;
+    }
+
+    #changelist-search input[type="submit"] {
+        width: auto !important;
+
+        min-width: 90px !important;
+    }
+
+
+    /* Campos */
+
+    .form-control,
+    .custom-select,
+    select,
+    textarea {
+        min-height: 38px !important;
+
+        font-size: 14px !important;
+    }
+
+
+    /* Small boxes */
+
+    .small-box .inner {
+        padding: 12px !important;
+    }
+
+    .small-box h3 {
+        font-size: 20px !important;
+    }
+
+
+    /* Cards */
+
+    .card-header {
+        padding: 12px !important;
+    }
+}
+
+
+/* ==========================================================
+   AÇÕES RECENTES
+   ========================================================== */
+
 #content-related,
 .recent-actions-module,
 aside.control-sidebar {
     display: block !important;
+
     visibility: visible !important;
+
     opacity: 1 !important;
 }
 
-/* Estilização do Card de Ações Recentes */
 .recent-actions-module {
     background: var(--sb-surface) !important;
+
     border: 1px solid var(--sb-border) !important;
+
     border-radius: var(--sb-radius-lg) !important;
+
     padding: 16px !important;
+
     box-shadow: var(--sb-shadow) !important;
+
     margin-top: 16px;
 }
 
-.recent-actions-module h2, 
+.recent-actions-module h2,
 .recent-actions-module h3 {
     font-size: 15px !important;
+
     font-weight: 700 !important;
+
     color: var(--sb-text) !important;
+
     margin-bottom: 12px !important;
+
     border-bottom: 1px solid var(--sb-border-light);
+
     padding-bottom: 8px;
 }
 
-/* Lista de Ações */
 .recent-actions-module ul {
     padding-left: 0 !important;
+
     list-style: none !important;
+
     margin-bottom: 0 !important;
 }
 
 .recent-actions-module li {
     font-size: 13px !important;
+
     color: var(--sb-text-soft) !important;
+
     padding: 8px 0 !important;
+
     border-bottom: 1px dashed var(--sb-border-light);
 }
 
@@ -381,13 +876,144 @@ aside.control-sidebar {
     border-bottom: none !important;
 }
 
-/* Responsividade: Celulares e Tablets */
-@media (max-width: 992px) {
-    /* No mobile/tablet, move as Ações Recentes para baixo do conteúdo principal */
-    #content-related {
-        width: 100% !important;
-        float: none !important;
-        clear: both !important;
-        margin-top: 24px !important;
+
+/* ==========================================================
+   AJUSTES EXTRAS PARA O DJANGO ADMIN
+   ========================================================== */
+
+/* Evita elementos ultrapassando a tela */
+
+img,
+video,
+iframe {
+    max-width: 100% !important;
+}
+
+
+/* Links de ação não ficam gigantes */
+
+.object-tools a {
+    width: auto !important;
+
+    min-height: 38px !important;
+
+    padding: 7px 14px !important;
+}
+
+
+/* Área de ações da listagem */
+
+.actions {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.actions select {
+    width: auto !important;
+
+    min-width: 160px;
+}
+
+
+/* Paginação */
+
+.pagination {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 4px;
+}
+
+.pagination .page-link {
+    min-width: 36px;
+
+    min-height: 36px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: var(--sb-radius-sm) !important;
+}
+
+
+/* ==========================================================
+   MOBILE — AÇÕES DA LISTAGEM
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+    .actions {
+        width: 100%;
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 6px;
+    }
+
+    .actions select {
+        flex: 1 1 160px;
+
+        width: auto !important;
+
+        min-width: 140px;
+    }
+
+    .actions button,
+    .actions input[type="submit"] {
+        width: auto !important;
+
+        min-height: 38px !important;
+
+        padding: 7px 14px !important;
+    }
+
+
+    /* Object tools */
+
+    .object-tools {
+        display: flex !important;
+
+        flex-wrap: wrap !important;
+
+        gap: 6px !important;
+
+        margin-bottom: 12px !important;
+    }
+
+    .object-tools li {
+        margin: 0 !important;
+    }
+
+    .object-tools a {
+        width: auto !important;
+
+        min-height: 38px !important;
+
+        padding: 7px 14px !important;
+    }
+
+
+    /* Paginação */
+
+    .pagination {
+        justify-content: center;
+
+        margin-top: 12px;
     }
 }
+
+
+/* ==========================================================
+   FIM
+   ========================================================== */
