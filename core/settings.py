@@ -124,7 +124,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STORAGES = {
     "default": {
-        "BACKEND": "storages.backends.s3.S3Storage",
+        "BACKEND": "app.storage.SupabaseStorage",
         "OPTIONS": {
             "access_key": os.getenv("SUPABASE_S3_ACCESS_KEY"),
             "secret_key": os.getenv("SUPABASE_S3_SECRET_KEY"),
