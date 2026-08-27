@@ -54,3 +54,6 @@ class AgendamentoAdmin(admin.ModelAdmin):
     list_per_page = 20
 
     date_hierarchy = "data"
+
+    # Template personalizado dos agendamentos
+    change_list_template = "admin/app/agendamento/change_list.html"
