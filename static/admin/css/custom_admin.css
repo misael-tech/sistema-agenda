@@ -1,6 +1,12 @@
 /* ==========================================================
-   STUDIO & BEAUTY — ESMERALDA, MENTA & DASHBOARD
-   RESPONSIVO — DESKTOP / TABLET / MOBILE
+   STUDIO & BEAUTY
+   CUSTOM ADMIN
+   DESKTOP / TABLET / MOBILE
+   ========================================================== */
+
+
+/* ==========================================================
+   VARIÁVEIS
    ========================================================== */
 
 :root {
@@ -8,43 +14,37 @@
     --sb-surface: #FFFFFF;
     --sb-surface-soft: #F9FAFC;
 
-    /* Primária */
     --sb-primary: #38A182;
     --sb-primary-dark: #2D856B;
     --sb-primary-light: #52B79A;
 
-    /* Ação e destaque */
     --sb-accent: #46BFA0;
     --sb-accent-dark: #3AA98D;
     --sb-accent-soft: #EBF7F4;
 
-    /* Textos */
     --sb-text: #2D3748;
     --sb-text-soft: #4A5568;
     --sb-muted: #718096;
 
-    /* Bordas */
     --sb-border: #E2E8F0;
     --sb-border-light: #EDF2F7;
 
-    /* Feedback */
     --sb-success: #38A182;
     --sb-success-soft: #EBF7F4;
+
     --sb-warning: #D69E2E;
     --sb-warning-soft: #FEFCBF;
+
     --sb-danger: #E53E3E;
     --sb-danger-soft: #FFF5F5;
 
-    /* Arredondamento */
     --sb-radius-sm: 8px;
     --sb-radius-md: 12px;
     --sb-radius-lg: 16px;
 
-    /* Sombras */
     --sb-shadow: 0 4px 12px rgba(45, 55, 72, 0.04);
     --sb-shadow-hover: 0 8px 24px rgba(45, 55, 72, 0.08);
 
-    /* Foco */
     --sb-focus-ring: 0 0 0 3px rgba(56, 161, 130, 0.25);
 }
 
@@ -53,15 +53,20 @@
    BASE
    ========================================================== */
 
-html,
-body {
-    background: var(--sb-bg) !important;
-    overflow-x: hidden !important;
+html {
     width: 100% !important;
+    overflow-x: hidden !important;
 }
 
 body {
+    width: 100% !important;
+
+    margin: 0 !important;
+
+    background: var(--sb-bg) !important;
+
     color: var(--sb-text) !important;
+
     font-family:
         "Plus Jakarta Sans",
         -apple-system,
@@ -71,9 +76,23 @@ body {
         sans-serif !important;
 
     font-size: 14px;
+
     line-height: 1.5;
+
     -webkit-font-smoothing: antialiased;
+
+    /* IMPORTANTE:
+       Não usar display:grid no body.
+    */
+    display: block !important;
+
+    overflow-x: hidden !important;
 }
+
+
+/* ==========================================================
+   LINKS
+   ========================================================== */
 
 a {
     color: var(--sb-primary) !important;
@@ -102,27 +121,32 @@ a:hover {
 
 .brand-link {
     height: 64px !important;
+
     display: flex !important;
-    align-items: center;
+    align-items: center !important;
+
     padding: 0 20px !important;
 
     background: var(--sb-primary-dark) !important;
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-bottom: 1px solid rgba(255,255,255,.1) !important;
 }
 
 .brand-text {
     color: #FFFFFF !important;
+
     font-size: 17px !important;
+
     font-weight: 700 !important;
 }
 
 .nav-sidebar .nav-header {
-    color: rgba(255, 255, 255, 0.65) !important;
+    color: rgba(255,255,255,.65) !important;
 
     padding: 16px 20px 8px !important;
 
     font-size: 11px !important;
+
     font-weight: 700 !important;
 
     text-transform: uppercase;
@@ -130,23 +154,27 @@ a:hover {
 
 .nav-sidebar .nav-link {
     margin: 3px 12px !important;
+
     padding: 10px 14px !important;
 
     border-radius: var(--sb-radius-md) !important;
 
-    color: rgba(255, 255, 255, 0.85) !important;
+    color: rgba(255,255,255,.85) !important;
 
     font-weight: 500;
 }
 
 .nav-sidebar .nav-link:hover {
-    background: rgba(255, 255, 255, 0.15) !important;
+    background: rgba(255,255,255,.15) !important;
+
     color: #FFFFFF !important;
 }
 
 .nav-sidebar .nav-link.active {
     background: #FFFFFF !important;
+
     color: var(--sb-primary-dark) !important;
+
     font-weight: 700;
 }
 
@@ -160,11 +188,52 @@ a:hover {
    ========================================================== */
 
 .main-header {
-    min-height: 64px;
+    min-height: 64px !important;
 
     background: var(--sb-surface) !important;
 
     border-bottom: 1px solid var(--sb-border) !important;
+}
+
+
+/* ==========================================================
+   CONTAINER
+   ========================================================== */
+
+.wrapper {
+    width: 100% !important;
+
+    max-width: none !important;
+
+    overflow-x: hidden !important;
+}
+
+.content-wrapper {
+    width: auto !important;
+
+    max-width: none !important;
+
+    min-height: calc(100vh - 64px);
+
+    background: var(--sb-bg) !important;
+
+    overflow-x: hidden !important;
+}
+
+.content {
+    width: 100% !important;
+
+    max-width: none !important;
+
+    box-sizing: border-box !important;
+}
+
+.container-fluid {
+    width: 100% !important;
+
+    max-width: none !important;
+
+    box-sizing: border-box !important;
 }
 
 
@@ -176,6 +245,7 @@ a:hover {
     background: var(--sb-surface) !important;
 
     border: 1px solid var(--sb-border) !important;
+
     border-radius: var(--sb-radius-lg) !important;
 
     box-shadow: var(--sb-shadow) !important;
@@ -232,6 +302,7 @@ a:hover {
     padding: 12px 16px !important;
 
     font-size: 11px !important;
+
     font-weight: 700 !important;
 
     text-transform: uppercase;
@@ -242,7 +313,8 @@ a:hover {
 }
 
 .table-responsive {
-    width: 100%;
+    width: 100% !important;
+
     overflow-x: auto !important;
 
     -webkit-overflow-scrolling: touch;
@@ -290,7 +362,7 @@ a:hover {
 .custom-select,
 select,
 textarea {
-    min-height: 40px;
+    min-height: 40px !important;
 
     background: var(--sb-surface) !important;
 
@@ -312,23 +384,7 @@ textarea:focus {
 
 
 /* ==========================================================
-   CONTAINER / LAYOUT
-   ========================================================== */
-
-.wrapper,
-.content-wrapper,
-.container-fluid,
-.content {
-    max-width: 100vw !important;
-
-    overflow-x: hidden !important;
-
-    box-sizing: border-box !important;
-}
-
-
-/* ==========================================================
-   DASHBOARD — SMALL BOX
+   SMALL BOX
    ========================================================== */
 
 .small-box {
@@ -345,469 +401,122 @@ textarea:focus {
 
 .small-box .icon {
     right: 12px !important;
+
     top: 12px !important;
 }
 
 
 /* ==========================================================
-   TABLET
-   Até 992px
+   PESQUISA
    ========================================================== */
 
-@media (max-width: 992px) {
+#changelist-search {
+    display: flex !important;
 
-    .content-wrapper {
-        padding: 0 12px !important;
-    }
+    align-items: center !important;
 
-    .content-header {
-        padding: 16px 8px 12px !important;
-    }
+    flex-wrap: wrap !important;
 
-    .row {
-        margin-left: -6px !important;
-        margin-right: -6px !important;
-    }
+    gap: 8px !important;
+}
 
-    .row > [class*="col-"] {
-        padding-left: 6px !important;
-        padding-right: 6px !important;
-    }
+#searchbar {
+    min-height: 40px !important;
 
-    .table-responsive {
-        display: block;
+    border-radius: var(--sb-radius-sm) !important;
+}
 
-        width: 100%;
+#changelist-search input[type="submit"] {
+    width: auto !important;
 
-        overflow-x: auto !important;
-
-        border-radius: var(--sb-radius-md);
-
-        -webkit-overflow-scrolling: touch;
-    }
-
-    #changelist-filter {
-        position: static !important;
-
-        width: 100% !important;
-
-        margin-top: 16px;
-    }
-
-    /* Ações recentes */
-    #content-related {
-        width: 100% !important;
-
-        float: none !important;
-
-        clear: both !important;
-
-        margin-top: 24px !important;
-    }
+    min-height: 40px !important;
 }
 
 
 /* ==========================================================
-   MOBILE
-   Até 768px
+   FILTROS
    ========================================================== */
 
-@media (max-width: 768px) {
-
-    /* ------------------------------------------------------
-       HEADER
-       ------------------------------------------------------ */
-
-    .main-header {
-        min-height: 56px !important;
-    }
-
-    /* ------------------------------------------------------
-       TÍTULOS
-       ------------------------------------------------------ */
-
-    .content-header {
-        padding: 14px 8px 10px !important;
-    }
-
-    .content-header h1 {
-        font-size: 20px !important;
-    }
-
-    /* ------------------------------------------------------
-       GRID
-       ------------------------------------------------------ */
-
-    .row > [class*="col-"] {
-        flex: 0 0 100% !important;
-
-        max-width: 100% !important;
-    }
-
-    /* ------------------------------------------------------
-       SMALL BOX
-       ------------------------------------------------------ */
-
-    .small-box h3 {
-        font-size: 22px !important;
-    }
-
-    .small-box .inner {
-        padding: 14px !important;
-    }
-
-
-    /* ------------------------------------------------------
-       CAMPOS
-       ------------------------------------------------------ */
-
-    .form-control,
-    .custom-select,
-    select,
-    textarea {
-        min-height: 40px !important;
-
-        font-size: 15px !important;
-    }
-
-
-    /* ------------------------------------------------------
-       BOTÕES — CORREÇÃO PRINCIPAL
-       ------------------------------------------------------ */
-
-    /*
-       NÃO deixar todos os botões ocuparem 100%
-       da tela no celular.
-    */
-
-    .btn {
-        width: auto !important;
-
-        min-width: 0 !important;
-
-        min-height: 40px !important;
-
-        padding: 8px 16px !important;
-
-        margin-bottom: 6px !important;
-
-        font-size: 14px !important;
-
-        line-height: 1.3 !important;
-
-        white-space: nowrap;
-
-        display: inline-flex !important;
-
-        align-items: center !important;
-
-        justify-content: center !important;
-    }
-
-
-    /* Botões principais */
-
-    .btn-primary,
-    .btn-success,
-    .addlink {
-        width: auto !important;
-
-        min-height: 40px !important;
-
-        padding: 8px 18px !important;
-    }
-
-
-    /* ------------------------------------------------------
-       BOTÕES DA ÁREA DE AÇÕES
-       ------------------------------------------------------ */
-
-    .submit-row {
-        display: flex !important;
-
-        flex-direction: row !important;
-
-        flex-wrap: wrap !important;
-
-        align-items: center !important;
-
-        gap: 8px !important;
-
-        padding: 10px !important;
-    }
-
-    .submit-row input,
-    .submit-row button,
-    .submit-row a {
-        width: auto !important;
-
-        min-width: 0 !important;
-
-        margin: 0 !important;
-    }
-
-
-    /* ------------------------------------------------------
-       PESQUISA DO DJANGO ADMIN
-       ------------------------------------------------------ */
-
-    #changelist-search {
-        display: flex !important;
-
-        flex-direction: row !important;
-
-        flex-wrap: wrap !important;
-
-        align-items: center !important;
-
-        gap: 8px !important;
-
-        width: 100% !important;
-    }
-
-    #searchbar {
-        flex: 1 1 180px !important;
-
-        width: auto !important;
-
-        min-height: 40px !important;
-
-        font-size: 15px !important;
-    }
-
-    #changelist-search input[type="submit"] {
-        width: auto !important;
-
-        min-width: 90px !important;
-
-        min-height: 40px !important;
-
-        padding: 8px 18px !important;
-
-        margin: 0 !important;
-    }
-
-
-    /* ------------------------------------------------------
-       FILTROS
-       ------------------------------------------------------ */
-
-    #changelist-filter {
-        width: 100% !important;
-
-        margin-top: 12px !important;
-    }
-
-    #changelist-filter select,
-    #changelist-filter input {
-        width: 100% !important;
-
-        min-height: 40px !important;
-    }
-
-
-    /* ------------------------------------------------------
-       TABS
-       ------------------------------------------------------ */
-
-    .nav-tabs {
-        flex-wrap: nowrap !important;
-
-        overflow-x: auto !important;
-
-        white-space: nowrap;
-
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .nav-tabs .nav-link {
-        flex: 0 0 auto;
-
-        font-size: 13px !important;
-
-        padding: 8px 12px !important;
-    }
-
-
-    /* ------------------------------------------------------
-       TABELAS
-       ------------------------------------------------------ */
-
-    .table {
-        font-size: 13px !important;
-    }
-
-    .table thead th {
-        padding: 10px 12px !important;
-
-        font-size: 10px !important;
-    }
-
-    .table tbody td {
-        padding: 10px 12px !important;
-
-        white-space: nowrap;
-    }
-
-
-    /* ------------------------------------------------------
-       CARDS
-       ------------------------------------------------------ */
-
-    .card {
-        border-radius: var(--sb-radius-md) !important;
-    }
-
-    .card-header {
-        padding: 13px 15px !important;
-    }
-
-
-    /* ------------------------------------------------------
-       CONTENT
-       ------------------------------------------------------ */
-
-    .content {
-        padding: 0 8px !important;
-    }
-
-    .content-wrapper {
-        padding: 0 8px !important;
-    }
-
-
-    /* ------------------------------------------------------
-       BREADCRUMB
-       ------------------------------------------------------ */
-
-    .breadcrumb {
-        font-size: 12px !important;
-
-        padding-left: 0 !important;
-
-        padding-right: 0 !important;
-
-        white-space: nowrap;
-
-        overflow-x: auto;
-    }
-
-
-    /* ------------------------------------------------------
-       AÇÕES RECENTES
-       ------------------------------------------------------ */
-
-    .recent-actions-module {
-        margin-top: 16px !important;
-
-        padding: 14px !important;
-
-        border-radius: var(--sb-radius-md) !important;
-    }
-
-    .recent-actions-module h2,
-    .recent-actions-module h3 {
-        font-size: 14px !important;
-    }
-
-    .recent-actions-module li {
-        font-size: 12px !important;
-
-        padding: 7px 0 !important;
-    }
+#changelist-filter {
+    border-radius: var(--sb-radius-lg) !important;
+}
+
+#changelist-filter select,
+#changelist-filter input {
+    border-radius: var(--sb-radius-sm) !important;
 }
 
 
 /* ==========================================================
-   CELULARES PEQUENOS
-   Até 480px
+   AÇÕES
    ========================================================== */
 
-@media (max-width: 480px) {
+.actions {
+    display: flex !important;
 
-    body {
-        font-size: 13px;
-    }
+    align-items: center !important;
 
-    .content {
-        padding: 0 6px !important;
-    }
+    flex-wrap: wrap !important;
 
-    .content-wrapper {
-        padding: 0 6px !important;
-    }
+    gap: 8px !important;
+}
 
-    .content-header {
-        padding-left: 4px !important;
-        padding-right: 4px !important;
-    }
+.actions select {
+    width: auto !important;
 
-    .content-header h1 {
-        font-size: 19px !important;
-    }
+    min-width: 160px !important;
+}
 
 
-    /* Botões ainda mais compactos */
+/* ==========================================================
+   OBJECT TOOLS
+   ========================================================== */
 
-    .btn,
-    .btn-primary,
-    .btn-success,
-    .addlink {
-        min-height: 38px !important;
+.object-tools {
+    display: flex !important;
 
-        padding: 7px 14px !important;
+    flex-wrap: wrap !important;
 
-        font-size: 13px !important;
-    }
+    gap: 8px !important;
+}
 
+.object-tools li {
+    margin: 0 !important;
+}
 
-    /* Pesquisa */
+.object-tools a {
+    width: auto !important;
 
-    #changelist-search {
-        gap: 6px !important;
-    }
+    min-height: 38px !important;
 
-    #searchbar {
-        flex-basis: 100% !important;
-
-        width: 100% !important;
-    }
-
-    #changelist-search input[type="submit"] {
-        width: auto !important;
-
-        min-width: 90px !important;
-    }
+    padding: 7px 14px !important;
+}
 
 
-    /* Campos */
+/* ==========================================================
+   PAGINAÇÃO
+   ========================================================== */
 
-    .form-control,
-    .custom-select,
-    select,
-    textarea {
-        min-height: 38px !important;
+.pagination {
+    display: flex !important;
 
-        font-size: 14px !important;
-    }
+    flex-wrap: wrap !important;
 
+    gap: 4px !important;
+}
 
-    /* Small boxes */
+.pagination .page-link {
+    min-width: 36px !important;
 
-    .small-box .inner {
-        padding: 12px !important;
-    }
+    min-height: 36px !important;
 
-    .small-box h3 {
-        font-size: 20px !important;
-    }
+    display: inline-flex !important;
 
+    align-items: center !important;
 
-    /* Cards */
+    justify-content: center !important;
 
-    .card-header {
-        padding: 12px !important;
-    }
+    border-radius: var(--sb-radius-sm) !important;
 }
 
 
@@ -818,8 +527,6 @@ textarea:focus {
 #content-related,
 .recent-actions-module,
 aside.control-sidebar {
-    display: block !important;
-
     visibility: visible !important;
 
     opacity: 1 !important;
@@ -836,7 +543,7 @@ aside.control-sidebar {
 
     box-shadow: var(--sb-shadow) !important;
 
-    margin-top: 16px;
+    margin-top: 16px !important;
 }
 
 .recent-actions-module h2,
@@ -878,104 +585,533 @@ aside.control-sidebar {
 
 
 /* ==========================================================
-   AJUSTES EXTRAS PARA O DJANGO ADMIN
+   ==========================================================
+   AGENDA
+   CARDS DE AGENDAMENTOS
+   ==========================================================
    ========================================================== */
 
-/* Evita elementos ultrapassando a tela */
 
-img,
-video,
-iframe {
+/*
+   IMPORTANTE:
+
+   O Django Admin/Jazzmin possui várias regras próprias
+   de layout.
+
+   Por isso a agenda fica completamente isolada.
+*/
+
+
+.agenda-cards-wrapper {
+    display: block !important;
+
+    width: 100% !important;
+
     max-width: 100% !important;
+
+    margin: 20px 0 !important;
+
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
 }
 
 
-/* Links de ação não ficam gigantes */
+/* GRID PRINCIPAL */
 
-.object-tools a {
-    width: auto !important;
+.agenda-cards {
+    display: grid !important;
 
-    min-height: 38px !important;
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr)) !important;
 
-    padding: 7px 14px !important;
-}
+    gap: 18px !important;
 
+    width: 100% !important;
 
-/* Área de ações da listagem */
+    max-width: 100% !important;
 
-.actions {
-    display: flex;
+    margin: 0 !important;
 
-    align-items: center;
+    padding: 0 !important;
 
-    flex-wrap: wrap;
+    box-sizing: border-box !important;
 
-    gap: 8px;
-}
+    /*
+       Evita qualquer interferência
+       do layout do Django Admin.
+    */
 
-.actions select {
-    width: auto !important;
+    float: none !important;
 
-    min-width: 160px;
-}
-
-
-/* Paginação */
-
-.pagination {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 4px;
-}
-
-.pagination .page-link {
-    min-width: 36px;
-
-    min-height: 36px;
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border-radius: var(--sb-radius-sm) !important;
+    position: relative !important;
 }
 
 
 /* ==========================================================
-   MOBILE — AÇÕES DA LISTAGEM
+   CARD
+   ========================================================== */
+
+.agenda-card {
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    width: auto !important;
+
+    min-width: 0 !important;
+
+    max-width: none !important;
+
+    margin: 0 !important;
+
+    padding: 20px !important;
+
+    box-sizing: border-box !important;
+
+    background: var(--sb-surface) !important;
+
+    border: 1px solid var(--sb-border) !important;
+
+    border-radius: var(--sb-radius-lg) !important;
+
+    box-shadow: var(--sb-shadow) !important;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease !important;
+
+    float: none !important;
+
+    position: relative !important;
+}
+
+.agenda-card:hover {
+    transform: translateY(-2px) !important;
+
+    box-shadow: var(--sb-shadow-hover) !important;
+
+    border-color: var(--sb-accent) !important;
+}
+
+
+/* ==========================================================
+   CABEÇALHO DO CARD
+   ========================================================== */
+
+.agenda-card-header {
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: space-between !important;
+
+    gap: 10px !important;
+
+    width: 100% !important;
+
+    margin: 0 0 18px !important;
+
+    padding: 0 0 14px !important;
+
+    border-bottom: 1px solid var(--sb-border-light) !important;
+
+    box-sizing: border-box !important;
+}
+
+.agenda-horario {
+    display: inline-flex !important;
+
+    align-items: center !important;
+
+    gap: 7px !important;
+
+    font-size: 18px !important;
+
+    font-weight: 700 !important;
+
+    color: var(--sb-text) !important;
+}
+
+.agenda-status {
+    display: inline-flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    flex-shrink: 0 !important;
+
+    padding: 5px 9px !important;
+
+    border-radius: 999px !important;
+
+    background: var(--sb-success-soft) !important;
+
+    color: var(--sb-success) !important;
+
+    font-size: 10px !important;
+
+    font-weight: 700 !important;
+
+    text-transform: uppercase !important;
+
+    letter-spacing: .06em !important;
+
+    white-space: nowrap !important;
+}
+
+
+/* ==========================================================
+   INFORMAÇÕES
+   ========================================================== */
+
+.agenda-info {
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    gap: 11px !important;
+
+    width: 100% !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+}
+
+.agenda-info-item {
+    display: flex !important;
+
+    align-items: flex-start !important;
+
+    gap: 10px !important;
+
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+}
+
+.agenda-icon {
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    flex: 0 0 30px !important;
+
+    width: 30px !important;
+
+    height: 30px !important;
+
+    min-width: 30px !important;
+
+    border-radius: var(--sb-radius-sm) !important;
+
+    background: var(--sb-accent-soft) !important;
+
+    color: var(--sb-primary) !important;
+
+    font-size: 13px !important;
+}
+
+.agenda-info-content {
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    flex: 1 1 auto !important;
+
+    min-width: 0 !important;
+}
+
+.agenda-label {
+    display: block !important;
+
+    margin: 0 0 1px !important;
+
+    color: var(--sb-muted) !important;
+
+    font-size: 10px !important;
+
+    font-weight: 700 !important;
+
+    text-transform: uppercase !important;
+
+    letter-spacing: .06em !important;
+}
+
+.agenda-value {
+    display: block !important;
+
+    max-width: 100% !important;
+
+    color: var(--sb-text) !important;
+
+    font-size: 13px !important;
+
+    font-weight: 600 !important;
+
+    overflow-wrap: anywhere !important;
+
+    word-break: break-word !important;
+}
+
+
+/* ==========================================================
+   RODAPÉ / AÇÕES
+   ========================================================== */
+
+.agenda-card-footer {
+    display: flex !important;
+
+    align-items: stretch !important;
+
+    gap: 8px !important;
+
+    width: 100% !important;
+
+    margin: 18px 0 0 !important;
+
+    padding: 15px 0 0 !important;
+
+    border-top: 1px solid var(--sb-border-light) !important;
+
+    box-sizing: border-box !important;
+}
+
+.agenda-action {
+    display: inline-flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    flex: 1 1 0 !important;
+
+    min-width: 0 !important;
+
+    min-height: 38px !important;
+
+    padding: 8px 12px !important;
+
+    border-radius: var(--sb-radius-sm) !important;
+
+    font-size: 11px !important;
+
+    font-weight: 700 !important;
+
+    text-transform: uppercase !important;
+
+    letter-spacing: .04em !important;
+
+    white-space: nowrap !important;
+
+    transition: all .2s ease !important;
+
+    box-sizing: border-box !important;
+}
+
+.agenda-action-edit {
+    background: var(--sb-accent-soft) !important;
+
+    color: var(--sb-primary-dark) !important;
+}
+
+.agenda-action-edit:hover {
+    background: var(--sb-accent) !important;
+
+    color: #FFFFFF !important;
+}
+
+.agenda-action-delete {
+    background: var(--sb-danger-soft) !important;
+
+    color: var(--sb-danger) !important;
+}
+
+.agenda-action-delete:hover {
+    background: var(--sb-danger) !important;
+
+    color: #FFFFFF !important;
+}
+
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 1200px) {
+
+    .agenda-cards {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr)) !important;
+    }
+
+}
+
+
+/* ==========================================================
+   MOBILE
    ========================================================== */
 
 @media (max-width: 768px) {
 
-    .actions {
-        width: 100%;
-
-        display: flex;
-
-        flex-wrap: wrap;
-
-        gap: 6px;
+    .main-header {
+        min-height: 56px !important;
     }
 
-    .actions select {
-        flex: 1 1 160px;
-
-        width: auto !important;
-
-        min-width: 140px;
+    .content-header {
+        padding: 14px 8px 10px !important;
     }
 
-    .actions button,
-    .actions input[type="submit"] {
+    .content-header h1 {
+        font-size: 20px !important;
+    }
+
+
+    /* Dashboard */
+
+    .row > [class*="col-"] {
+        flex: 0 0 100% !important;
+
+        max-width: 100% !important;
+    }
+
+
+    /* Agenda */
+
+    .agenda-cards {
+        grid-template-columns: 1fr !important;
+
+        gap: 14px !important;
+    }
+
+    .agenda-card {
+        width: 100% !important;
+
+        padding: 17px !important;
+    }
+
+    .agenda-horario {
+        font-size: 17px !important;
+    }
+
+
+    /* Botões */
+
+    .btn {
         width: auto !important;
 
-        min-height: 38px !important;
+        min-width: 0 !important;
 
-        padding: 7px 14px !important;
+        min-height: 40px !important;
+
+        padding: 8px 16px !important;
+
+        margin-bottom: 6px !important;
+
+        font-size: 14px !important;
+
+        white-space: nowrap !important;
+    }
+
+
+    /* Pesquisa */
+
+    #changelist-search {
+        display: flex !important;
+
+        flex-direction: row !important;
+
+        flex-wrap: wrap !important;
+    }
+
+    #searchbar {
+        flex: 1 1 180px !important;
+
+        width: auto !important;
+    }
+
+    #changelist-search input[type="submit"] {
+        width: auto !important;
+    }
+
+
+    /* Ações */
+
+    .submit-row {
+        display: flex !important;
+
+        flex-direction: row !important;
+
+        flex-wrap: wrap !important;
+
+        gap: 8px !important;
+    }
+
+    .submit-row input,
+    .submit-row button,
+    .submit-row a {
+        width: auto !important;
+
+        margin: 0 !important;
+    }
+
+
+    /* Ações recentes */
+
+    #content-related {
+        width: 100% !important;
+
+        float: none !important;
+
+        clear: both !important;
+
+        margin-top: 24px !important;
+    }
+
+
+    /* Conteúdo */
+
+    .content {
+        padding: 0 8px !important;
+    }
+
+    .content-wrapper {
+        padding: 0 8px !important;
+    }
+
+
+    /* Cards */
+
+    .card {
+        border-radius: var(--sb-radius-md) !important;
+    }
+
+    .card-header {
+        padding: 13px 15px !important;
+    }
+
+
+    /* Tabelas */
+
+    .table-responsive {
+        overflow-x: auto !important;
+    }
+
+    .table tbody td {
+        white-space: nowrap;
     }
 
 
@@ -987,238 +1123,156 @@ iframe {
         flex-wrap: wrap !important;
 
         gap: 6px !important;
-
-        margin-bottom: 12px !important;
-    }
-
-    .object-tools li {
-        margin: 0 !important;
-    }
-
-    .object-tools a {
-        width: auto !important;
-
-        min-height: 38px !important;
-
-        padding: 7px 14px !important;
-    }
-
-
-    /* Paginação */
-
-    .pagination {
-        justify-content: center;
-
-        margin-top: 12px;
     }
 
 }
-
-
-
-
-/* parte adicional depois */
 
 
 /* ==========================================================
-   AGENDA DE AGENDAMENTOS — CARDS
+   CELULARES PEQUENOS
    ========================================================== */
-
-.agenda-cards-wrapper {
-    width: 100%;
-    margin-top: 20px;
-}
-
-.agenda-cards {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 18px;
-    width: 100%;
-}
-
-.agenda-card {
-    background: var(--sb-surface) !important;
-    border: 1px solid var(--sb-border) !important;
-    border-radius: var(--sb-radius-lg) !important;
-    padding: 20px !important;
-    box-shadow: var(--sb-shadow) !important;
-    transition: all 0.2s ease;
-    min-width: 0;
-}
-
-.agenda-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--sb-shadow-hover) !important;
-    border-color: var(--sb-accent) !important;
-}
-
-/* Cabeçalho */
-
-.agenda-card-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 18px;
-    padding-bottom: 14px;
-    border-bottom: 1px solid var(--sb-border-light);
-}
-
-.agenda-horario {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--sb-text);
-}
-
-.agenda-status {
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .06em;
-    padding: 5px 9px;
-    border-radius: 999px;
-    background: var(--sb-success-soft);
-    color: var(--sb-success);
-    white-space: nowrap;
-}
-
-/* Informações */
-
-.agenda-info {
-    display: flex;
-    flex-direction: column;
-    gap: 11px;
-}
-
-.agenda-info-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    min-width: 0;
-}
-
-.agenda-icon {
-    width: 30px;
-    height: 30px;
-    min-width: 30px;
-    border-radius: var(--sb-radius-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--sb-accent-soft);
-    color: var(--sb-primary);
-    font-size: 13px;
-}
-
-.agenda-info-content {
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.agenda-label {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: .06em;
-    font-weight: 700;
-    color: var(--sb-muted);
-    margin-bottom: 1px;
-}
-
-.agenda-value {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--sb-text);
-    overflow-wrap: anywhere;
-}
-
-/* Botões */
-
-.agenda-card-footer {
-    display: flex;
-    gap: 8px;
-    margin-top: 18px;
-    padding-top: 15px;
-    border-top: 1px solid var(--sb-border-light);
-}
-
-.agenda-action {
-    flex: 1;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 38px;
-    padding: 8px 12px;
-    border-radius: var(--sb-radius-sm);
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .04em;
-    transition: all .2s ease;
-}
-
-.agenda-action-edit {
-    background: var(--sb-accent-soft) !important;
-    color: var(--sb-primary-dark) !important;
-}
-
-.agenda-action-edit:hover {
-    background: var(--sb-accent) !important;
-    color: #FFFFFF !important;
-}
-
-.agenda-action-delete {
-    background: var(--sb-danger-soft) !important;
-    color: var(--sb-danger) !important;
-}
-
-.agenda-action-delete:hover {
-    background: var(--sb-danger) !important;
-    color: #FFFFFF !important;
-
-}
-
-
-
-
-@media (max-width: 1200px) {
-
-    .agenda-cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-}
-
-
-@media (max-width: 768px) {
-
-    .agenda-cards {
-        grid-template-columns: 1fr;
-        gap: 14px;
-    }
-
-    .agenda-card {
-        padding: 17px !important;
-    }
-
-    .agenda-horario {
-        font-size: 17px;
-    }
-
-}
-
 
 @media (max-width: 480px) {
 
+    body {
+        font-size: 13px;
+    }
+
+    .content {
+        padding: 0 6px !important;
+    }
+
+    .content-wrapper {
+        padding: 0 6px !important;
+    }
+
+    .content-header {
+        padding-left: 4px !important;
+
+        padding-right: 4px !important;
+    }
+
+    .content-header h1 {
+        font-size: 19px !important;
+    }
+
+
+    /* Agenda */
+
+    .agenda-cards {
+        grid-template-columns: 1fr !important;
+
+        gap: 12px !important;
+    }
+
+    .agenda-card {
+        padding: 15px !important;
+
+        border-radius: var(--sb-radius-md) !important;
+    }
+
     .agenda-card-footer {
-        flex-direction: column;
+        flex-direction: column !important;
+
+        gap: 7px !important;
     }
 
     .agenda-action {
-        width: 100%;
+        width: 100% !important;
+
+        flex: none !important;
     }
 
+
+    /* Botões */
+
+    .btn,
+    .btn-primary,
+    .btn-success,
+    .addlink {
+        min-height: 38px !important;
+
+        padding: 7px 14px !important;
+
+        font-size: 13px !important;
+    }
+
+
+    /* Pesquisa */
+
+    #changelist-search {
+        gap: 6px !important;
+    }
+
+    #searchbar {
+        flex-basis: 100% !important;
+
+        width: 100% !important;
+    }
+
+
+    /* Campos */
+
+    .form-control,
+    .custom-select,
+    select,
+    textarea {
+        min-height: 38px !important;
+
+        font-size: 14px !important;
+    }
+
+
+    /* Small boxes */
+
+    .small-box .inner {
+        padding: 12px !important;
+    }
+
+    .small-box h3 {
+        font-size: 20px !important;
+    }
+
+
+    /* Cards */
+
+    .card-header {
+        padding: 12px !important;
+    }
+}
+
+
+/* ==========================================================
+   IMAGENS / MÍDIA
+   ========================================================== */
+
+img,
+video,
+iframe {
+    max-width: 100% !important;
+
+    height: auto;
+}
+
+
+/* ==========================================================
+   SEGURANÇA CONTRA LAYOUT QUEBRADO
+   ========================================================== */
+
+/*
+   Não permitir que elementos globais do Admin
+   transformem o BODY em grid/flex.
+*/
+
+html body {
+    display: block !important;
+}
+
+
+/*
+   A agenda é o único elemento que usa GRID.
+*/
+
+.agenda-cards {
+    display: grid !important;
 }
