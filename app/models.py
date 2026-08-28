@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+
 class Servico(models.Model):
     name = models.CharField(max_length=50)
     descripiton = models.CharField(max_length=150)
