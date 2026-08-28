@@ -33,9 +33,7 @@ def agendamento(request, servico_id):
 
     servico = get_object_or_404(Servico, id=servico_id)
 
-    # =========================
-    # GET
-    # =========================
+    
 
     if request.method == "GET":
 
@@ -46,9 +44,7 @@ def agendamento(request, servico_id):
         })
 
 
-    # =========================
-    # POST
-    # =========================
+  
 
     elif request.method == "POST":
 
@@ -59,9 +55,7 @@ def agendamento(request, servico_id):
         horario = request.POST.get("horario")
 
 
-        # =========================
-        # VALIDAR DATA
-        # =========================
+       
 
         try:
             data_agendamento = datetime.strptime(
@@ -79,7 +73,6 @@ def agendamento(request, servico_id):
             })
 
 
-        # Não permite data passada
 
         if data_agendamento < date.today():
 
@@ -91,10 +84,8 @@ def agendamento(request, servico_id):
             })
 
 
-        # =========================
-        # VALIDAR HORÁRIO
-        # =========================
 
+        
         if horario not in HORARIOS_ATENDIMENTO:
 
             return render(request, "agendamento.html", {
@@ -105,9 +96,7 @@ def agendamento(request, servico_id):
             })
 
 
-        # =========================
-        # VERIFICAR HORÁRIO PASSADO
-        # =========================
+    
 
         if data_agendamento == date.today():
 
@@ -128,9 +117,6 @@ def agendamento(request, servico_id):
                 })
 
 
-        # =========================
-        # VERIFICAR SE ESTÁ OCUPADO
-        # =========================
 
         horario_ocupado = Agendamento.objects.filter(
             data=data_agendamento,
@@ -148,9 +134,6 @@ def agendamento(request, servico_id):
             })
 
 
-        # =========================
-        # CRIAR AGENDAMENTO
-        # =========================
 
         agendamento = Agendamento.objects.create(
             servico=servico,
@@ -162,9 +145,6 @@ def agendamento(request, servico_id):
         )
 
 
-        # =========================
-        # REDIRECIONAR
-        # =========================
 
         return redirect(
             "comprovante",
@@ -172,9 +152,7 @@ def agendamento(request, servico_id):
         )
 
 
-# =========================
-# COMPROVANTE
-# =========================
+
 
 def comprovante(request, agendamento_id):
 
@@ -188,9 +166,6 @@ def comprovante(request, agendamento_id):
     })
 
 
-# =========================
-# HORÁRIOS DISPONÍVEIS - AJAX
-# =========================
 
 def horarios_disponiveis(request, servico_id):
 
