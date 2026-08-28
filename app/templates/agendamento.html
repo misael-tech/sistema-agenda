@@ -35,9 +35,7 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* =========================
-           HORÁRIOS
-        ========================= */
+    
 
         .horario-btn {
 
@@ -62,7 +60,7 @@
         }
 
 
-        /* DISPONÍVEL */
+        
 
         .horario-btn.disponivel {
 
@@ -594,7 +592,7 @@
 </main>
 
 
-<!-- FOOTER -->
+
 
 <footer class="border-t border-stone-200/60 py-10 mt-12 text-center bg-white/50">
 
@@ -613,7 +611,7 @@
 </footer>
 
 
-<!-- JAVASCRIPT -->
+
 <script>
 const dataInput = document.getElementById("data");
 const horarioInput = document.getElementById("horario");
@@ -621,9 +619,6 @@ const horarioButtons = document.querySelectorAll(".horario-btn");
 const mensagemHorario = document.getElementById("mensagem-horario");
 
 
-/* =========================
-   DATA MÍNIMA = HOJE
-========================= */
 
 const hoje = new Date();
 const ano = hoje.getFullYear();
@@ -635,9 +630,7 @@ const dataHoje = `${ano}-${mes}-${dia}`;
 dataInput.min = dataHoje;
 
 
-/* =========================
-   VERIFICAR HORÁRIOS
-========================= */
+
 
 dataInput.addEventListener("change", function () {
 
@@ -676,10 +669,7 @@ dataInput.addEventListener("change", function () {
     }
 
 
-    /* =========================
-       SE A DATA FOR HOJE,
-       BLOQUEAR HORÁRIOS PASSADOS
-    ========================= */
+   
 
     const agora = new Date();
 
@@ -744,9 +734,7 @@ dataInput.addEventListener("change", function () {
         "Verificando disponibilidade...";
 
 
-    /* =========================
-       CONSULTAR BANCO
-    ========================= */
+
 
     fetch(
         "{% url 'horarios_disponiveis' servico.id %}?data=" + data
@@ -808,9 +796,6 @@ dataInput.addEventListener("change", function () {
 });
 
 
-/* =========================
-   SELECIONAR HORÁRIO
-========================= */
 
 horarioButtons.forEach(button => {
 
@@ -821,7 +806,7 @@ horarioButtons.forEach(button => {
         }
 
 
-        /* Remove seleção dos outros */
+       
 
         horarioButtons.forEach(btn => {
 
@@ -839,7 +824,7 @@ horarioButtons.forEach(button => {
         });
 
 
-        /* Seleciona */
+        
 
         this.classList.remove(
             "disponivel"
@@ -858,7 +843,7 @@ horarioButtons.forEach(button => {
         `;
 
 
-        /* Salva horário */
+     
 
         horarioInput.value =
             this.dataset.horario;
